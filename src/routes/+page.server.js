@@ -1,10 +1,16 @@
-import { gql } from 'graphql-request'
-import { hygraph } from '$lib/utils/hygraph.js'
-
-import getQueryPartner from '$lib/queries/partner'
+import { gql } from "graphql-request";
+import { hygraph } from "$lib/utils/hygraph.js";
 
 export async function load() {
-    let query = getQueryPartner(gql)
-    
-    return await hygraph.request(query)
+    let query = gql`
+    query Program {
+        websites {
+            id
+            titel
+            slug
+            homepage
+        }
+    }`;
+
+    return await hygraph.request(query);
 }
