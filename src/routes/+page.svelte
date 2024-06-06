@@ -1,74 +1,94 @@
 <script>
     export let data;
 
+    import Navbar from "../lib/components/navbar.svelte"
     
     console.log(data);
 </script>
 
 <main>
-    <nav>
-        <img src="/logo.svg" class="logo" alt="">
-        <section class="dashboard-container">
-            <section class="dashboard">
-                <img src="/dashboard-icon.svg" alt="">
-                <p class="dashboard">Dashboard</p>
-            </section>
-            <ul>
-                <li>Dashboard</li>
-                <li>Info</li>
-                <li>Voortgang</li>
-                <li>Scan</li>
-            </ul>
-        </section>
-    </nav>
+    <Navbar />
 
-    {#each data.websites as website}
-        <section>
-            <h3>{website.titel}</h3>
-            <p>{website.homepage}</p>
-        </section>
-    {/each}
+    <section class="heading">
+        <p class="dashboard-heading">Dashboard</p>
+        <h2 class="header-heading">Admin</h2>
+    </section>
+
+    <section class="websites">
+        {#each data.websites as website}
+            <section class="website-container">
+                <section>
+                    <h3>{website.titel}</h3>
+                    <p class="links">{website.homepage}</p>
+                    <p class="toegankelijk">{website.toegankelijk}</p>
+                </section>
+                <section>
+                    <img src="/pcg-wheel.png" alt="">
+                </section>
+            </section>
+        {/each}
+    </section>
 </main>
 
 <style>
-    nav {
-        background-color: #FFFFFF;
-        width: 14rem;
-        height: 100%;
-        position:absolute;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        padding: 2rem;
+    .heading {
+        margin-left: 15rem;
+        margin-bottom: 4rem;
         color: #5D666A;
     }
 
-    .logo {
-        width: 10rem;
-    }
-
-    .dashboard-container {
-        margin-top: 4em;
-    }
-
-    ul {
-        list-style-type: none;
+    .dashboard-heading {
         font-size: 1rem;
-        margin-top: 1em;
     }
 
-    li {
-        margin-top: 1em;
+    .header-heading {
+        font-size: 2.5rem;
     }
 
-    .dashboard {
-        color: #0275FF;
-        font-weight: 750;
+    .websites {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(23em, 1fr));
+        gap: 1.5em;
+        list-style-type: none;
+        margin: 0 1em 1em;
+        margin-left: 15rem;
+    }
+
+    .website-container {
+        background-color: white;
+        color: #5D666A;
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: row;
-        font-size: 1.2rem;
+        justify-content: space-between;
+        /* gap: 1em; */
+        text-decoration: none;
+        padding: 1em;
+        border-radius: .8em;
+        width: 100%;
+        transition: .25s ease;
+	}
+
+    .toegankelijk {
+        padding: .7em;
+        background-color: #BBFFD8;
+        color: #00883C;
+        margin-top: 1em;
+        font-weight: 600;
+        width: max-content;
+        border-radius: 69px;
+        font-weight: 700;
+    }
+
+    h3 {
+        font-size: 1.4em;
+        font-weight: 700;
+    }
+
+    .links {
+        text-overflow: ellipsis;
+        overflow: hidden; 
+        width: 12em; 
+        height: 1.2em; 
+        white-space: nowrap;
     }
 </style>
