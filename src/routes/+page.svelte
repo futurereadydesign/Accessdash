@@ -9,6 +9,7 @@
 <main>
     <Navbar />
 
+    <section class="spacer"></section>
     <section class="heading">
         <p class="dashboard-heading">Dashboard</p>
         <h2 class="header-heading">Admin</h2>
@@ -31,10 +32,13 @@
 </main>
 
 <style>
+    .spacer {
+        height: 2em;
+    }
+
     .heading {
-        margin-left: 15rem;
-        margin-bottom: 4rem;
-        color: #5D666A;
+        margin-left: 15em;
+        margin-bottom: 2em;
     }
 
     .dashboard-heading {
