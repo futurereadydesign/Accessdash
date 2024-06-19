@@ -12,7 +12,7 @@
     <section class="spacer"></section>
     <section class="heading">
         <p class="dashboard-heading">Dashboard</p>
-        <h2 class="header-heading">Admin</h2>
+        <h2 class="header-heading">Future Ready Design</h2>
     </section>
 
     <section class="websites">

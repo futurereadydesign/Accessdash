@@ -1,7 +1,7 @@
 export default function getQueryPartner(gql){
     return gql`
     query checklist {
-  succescriteriums {
+  succescriteriums (first: 100) {
     index
     titel
     criteria {
@@ -10,6 +10,7 @@ export default function getQueryPartner(gql){
     niveau
     impact
     oplossen
+    wcag
   }
 }
     `
