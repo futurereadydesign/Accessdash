@@ -42,7 +42,7 @@
     }
 
     .header-heading {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .websites {

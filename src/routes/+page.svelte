@@ -46,13 +46,13 @@
     }
 
     .header-heading {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .websites {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(23em, 1fr));
-        gap: 1.5em;
+        gap: 1.2em;
         list-style-type: none;
         margin: 0 1em 1em;
         margin-left: 15rem;

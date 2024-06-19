@@ -9,39 +9,83 @@
 <main>
     <Navbar />
 
-    {#each data.succescriteriums as succescriterium}
+    <section class="spacer"></section>
+    <section class="heading">
+        <p class="dashboard-heading">Dashboard</p>
+        <h2 class="header-heading">Future Ready Design/Home</h2>
+    </section>
+
+    {#each data.richtlijns as richtlijns}
         <article>
-            <div class="content-container">
-                <div class="text-content">
-                    <span>Richtlijn {succescriterium.index}</span>
-                    <h3>{succescriterium.titel}</h3>
-                    <a href="{succescriterium.wcag}">{succescriterium.wcag}</a>
-                </div>
-                <label class="checkbox-label" for="">
-                    <input name="check" type="checkbox"/>
-                </label>
+            <div class="richtlijn-container">
+                <h3><span class="richtlijn">{richtlijns.titel}</span> <span class="richtlijn-index">Richtlijn {richtlijns.index}</span> <img class="richtlijn-icon" src="{richtlijns.icon.url}" alt="{richtlijns.icon.fileName}" /></h3>
             </div>
-            <details>
-                <summary>
-                </summary>
-                <div class="richtlijn-uitleg">{@html succescriterium.criteria.html}</div>
-                <!-- <p>{succescriterium.niveau}</p> -->
-                <section class="bot-container">
-                    <div class="bot-block">
-                        <h4><img src="../heart-icon.svg" alt="Impact icon"> Impact op gebruiker</h4>
-                        <p>{succescriterium.impact}</p>
-                    </div>
-                    <div class="bot-block">
-                        <h4><img src="../test-icon.svg" alt="Test icon"> Hoe te testen</h4>
-                        <p>{succescriterium.oplossen}</p>
-                    </div>
+            {#each richtlijns.succescriteria as succescriteria}
+                <section class="criterias">
+                    <details>
+                        <summary>
+                            <div class="content-container">
+                                <div class="text-content">
+                                    <h3>{succescriteria.index} {succescriteria.titel}</h3>
+                                    <a href="{succescriteria.wcag}">{succescriteria.wcag}</a>
+                                </div>
+                                <label class="checkbox-label" for="">
+                                    <input name="check" type="checkbox"/>
+                                </label>
+                            </div>
+                        </summary>
+                        <div class="richtlijn-uitleg">{@html succescriteria.criteria.html}</div>
+                        <!-- <p>{succescriterium.niveau}</p> -->
+                        <section class="bot-container">
+                            <div class="bot-block">
+                                <h4><img src="../heart-icon.svg" alt="Impact icon"> Impact op gebruiker</h4>
+                                <p>{succescriteria.impact}</p>
+                            </div>
+                            <div class="bot-block">
+                                <h4><img src="../test-icon.svg" alt="Test icon"> Hoe te testen</h4>
+                                <p>{succescriteria.testen}</p>
+                            </div>
+                        </section>
+                        <section class="fix-container">
+                            <div>
+                                <h4 class="solution">Hoe je dit kunt oplossen ({succescriteria.index})</h4>
+                                <p>{succescriteria.oplossen}</p>
+                            </div>
+                        </section>
+                    </details>
                 </section>
-            </details>
+            {/each}
         </article>
     {/each}
+
+    <section class="filters">
+        <button>Voldoet niet(14)</button>
+        <button>Voldoet(9)</button>
+        <button>A(19)</button>
+        <button>AA(12)</button>
+        <button>AAA(11)</button>
+    </section>
+
 </main>
 
 <style>
+    .spacer {
+        height: 2em;
+    }
+
+    .heading {
+        margin-left: 15em;
+        margin-bottom: 2em;
+    }
+
+    .dashboard-heading {
+        font-size: 1rem;
+    }
+
+    .header-heading {
+        font-size: 2rem;
+    }
+
     article {
         margin-left: 15em;
         max-width: 60vw;
@@ -50,11 +94,37 @@
         border-radius: 20px;
     }
 
-    .content-container {
+    .richtlijn {
+        font-size: 1.5em;
+    }
+
+    .criterias {
+        border-top: 3px solid #F0F0F0;
+    }
+
+    .richtlijn-index {
+        font-size: 1em;
+        font-weight: 400;
+        margin-left: 1em;
+    }
+
+    .content-container, .richtlijn-container {
         padding: 1em;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
+    }
+
+    .richtlijn-container {
+        padding-top: 1.5em;
+        padding-left: 2em;
+        padding-bottom: 1em;
+    }
+
+    .richtlijn-icon {
+        margin-left: 1em;
+        margin-bottom: -.3em;
     }
 
     .text-content {
@@ -70,6 +140,7 @@
     a {
         color: #5D666A;
         text-decoration: none;
+        opacity: 70%;
     }
 
     .checkbox-label {
@@ -83,7 +154,7 @@
     }
 
     details {
-        padding: 1em;
+        padding: 1.2em;
     }
 
     summary {
@@ -158,4 +229,27 @@
         background-color: #F0F0F0;
         border-radius: 10px;
     }
+
+    .bot-block h4 {
+        display: flex;
+        align-items: center;
+        gap: .4em;
+        margin-bottom: .5em;
+    }
+
+    .fix-container {
+        margin-top: 1em;
+        padding: 20px;
+        background-color: rgba(2, 117, 255, .2);
+        border-radius: 10px;
+        border: solid 2px #0275FF;
+        color: #5D666A;
+    }
+
+    .solution {
+        color: #0275FF;
+        margin-bottom: .5em;
+    }
+
+
 </style>
