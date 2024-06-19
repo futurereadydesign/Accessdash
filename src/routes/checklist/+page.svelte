@@ -188,6 +188,7 @@
         appearance: none;
         margin: 0;
         color: #0275FF;
+        background-color: rgba(2, 117, 255, .1);
         min-width: 2em;
         width: 2em;
         height: 2em;
