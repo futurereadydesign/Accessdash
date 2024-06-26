@@ -2,14 +2,11 @@
     export let data;
 
     import Navbar from "../lib/components/navbar.svelte"
-    
-    console.log(data);
 </script>
 
 <main>
     <Navbar />
 
-    <section class="spacer"></section>
     <section class="heading">
         <p class="dashboard-heading">Dashboard</p>
         <h2 class="header-heading">Admin</h2>
@@ -32,12 +29,7 @@
 </main>
 
 <style>
-    .spacer {
-        height: 2em;
-    }
-
     .heading {
-        margin-left: 15em;
         margin-bottom: 2em;
     }
 
@@ -55,7 +47,6 @@
         gap: 1.2em;
         list-style-type: none;
         margin: 0 1em 1em;
-        margin-left: 15rem;
     }
 
     .website-container {

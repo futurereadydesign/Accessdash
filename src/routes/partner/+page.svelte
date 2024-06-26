@@ -2,38 +2,14 @@
     export let data;
 
     import Navbar from "../../lib/components/navbar.svelte"
-    
-    console.log(data);
 </script>
 
 <main>
     <Navbar />
-
-    <section class="spacer"></section>
-    <section class="heading">
-        <p class="dashboard-heading">Dashboard</p>
-        <h2 class="header-heading">Future Ready Design</h2>
-    </section>
-
-    <section class="websites">
-        {#each data.websites as website}
-            <section class="website-container">
-                <section>
-                    <h3>{website.titel}</h3>
-                    <p class="links">{website.homepage}</p>
-                </section>
-            </section>
-        {/each}
-    </section>
 </main>
 
 <style>
-    .spacer {
-        height: 2em;
-    }
-
     .heading {
-        margin-left: 15em;
         margin-bottom: 2em;
     }
 
@@ -51,7 +27,6 @@
         gap: 1.5em;
         list-style-type: none;
         margin: 0 1em 1em;
-        margin-left: 15rem;
     }
 
     .website-container {
