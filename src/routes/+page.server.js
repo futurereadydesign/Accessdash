@@ -1,9 +1,9 @@
 import { gql } from "graphql-request";
-import getQueryPartner from "$lib/queries/partner";
+import getQueryCompanies from "../lib/queries/companies";
 import { hygraph } from "$lib/utils/hygraph.js";
 
 export async function load() {
-  let query = getQueryPartner(gql);
+  let query = getQueryCompanies(gql);
 
   return await hygraph.request(query);
 }

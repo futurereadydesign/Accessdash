@@ -3,31 +3,31 @@
   import Navbar from "../lib/components/navbar.svelte";
 </script>
 
-<main>
-  <Navbar />
+<Navbar />
 
-  <section class="heading">
-    <p class="dashboard-heading">Dashboard</p>
-    <h2 class="header-heading">Admin</h2>
-  </section>
+<section class="heading">
+  <p class="dashboard-heading">Dashboard</p>
+  <h2 class="header-heading">Admin</h2>
+</section>
 
-  <section class="websites">
-    {#each data.websites as website}
-      <section class="website-container">
-        <section>
-          <h3>{website.titel}</h3>
-          <p class="links">{website.homepage}</p>
-          <p class="toegankelijk">{website.toegankelijk}</p>
-        </section>
-        <section>
-          <img src="/pcg-wheel.png" alt="" />
-        </section>
+<section class="websites">
+  {#each data.bedrijven as bedrijf}
+    <a href={bedrijf.slug} class="website-container">
+      <section>
+        <h3>{bedrijf.titel}</h3>
+        <a href={bedrijf.homepage} class="links">{bedrijf.homepage}</a>
+        <p class="toegankelijk">{bedrijf.toegankelijk}</p>
       </section>
-    {/each}
-  </section>
-</main>
+      <section>
+        <img src="/pcg-wheel.png" alt="" />
+      </section>
+    </a>
+  {/each}
+</section>
 
 <style lang="scss">
+  @import "$lib/sass/variables.scss";
+
   .heading {
     margin-bottom: 2em;
   }
@@ -59,6 +59,11 @@
     border-radius: 0.8em;
     width: 100%;
     transition: 0.25s ease;
+  }
+
+  .website-container a {
+    color: #5d666a;
+    text-decoration: none;
   }
 
   .toegankelijk {

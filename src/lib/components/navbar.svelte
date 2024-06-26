@@ -1,3 +1,7 @@
+<script>
+  import Breadcrumbs from "./breadcrumbs.svelte";
+</script>
+
 <nav>
   <img src="/logo.svg" class="logo" alt="" />
   <section class="dashboard-container">
@@ -10,6 +14,7 @@
       <li><a href="#">Voortgang</a></li>
       <li><a href="#">Scan</a></li>
     </ul>
+    <Breadcrumbs />
   </section>
 </nav>
 
