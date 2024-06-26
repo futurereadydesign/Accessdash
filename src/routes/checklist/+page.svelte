@@ -1,6 +1,5 @@
 <script>
     export let data;
-	
     import Navbar from "../../lib/components/navbar.svelte"
 </script>
 
@@ -65,7 +64,7 @@
 
 </main>
 
-<style>
+<style lang="scss">
     .heading {
         margin-bottom: 2em;
     }
