@@ -1,20 +1,24 @@
 <script>
   import Breadcrumbs from "./breadcrumbs.svelte";
+  export let crumbs;
 </script>
 
 <nav>
   <img src="/logo.svg" class="logo" alt="" />
   <section class="dashboard-container">
     <section class="dashboard">
-      <img src="/dashboard-icon.svg" alt="" />
-      <a href="/" class="dashboard">Dashboard</a>
+      <a href="/" class="dashboard">
+        <img src="/dashboard-icon.svg" alt="" />Dashboard
+      </a>
     </section>
     <ul>
       <li><a href="#">Info</a></li>
       <li><a href="#">Voortgang</a></li>
       <li><a href="#">Scan</a></li>
     </ul>
-    <Breadcrumbs />
+    {#if crumbs}
+      <Breadcrumbs {crumbs} {origin} />
+    {/if}
   </section>
 </nav>
 
@@ -67,7 +71,6 @@
     font-weight: 750;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: row;
     font-size: 1.2rem;
   }

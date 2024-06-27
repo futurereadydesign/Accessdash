@@ -4,6 +4,7 @@ export default function getQueryWebsites(gql, slug) {
       bedrijf(where: {slug: "${slug}"}) {
         titel
         homepage
+        slug
         websites {
           homepage
           titel
