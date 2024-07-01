@@ -1,21 +1,34 @@
 <script>
+  import Navbar from "../../../lib/components/navbar.svelte";
+  import { page } from "$app/stores";
   export let data;
-  import Navbar from "$lib/components/navbar.svelte";
+
+  $: titel = data.website.titel;
+  $: slug = data.website.slug;
+  $: urls = data.website.urls;
+  $: origin = $page.params.urlID + "/" + $page.params.websiteID;
+
+  $: crumbs = {
+    titel: titel,
+    slug: $page.params.websiteID,
+    items: urls,
+    origin: origin,
+  };
 </script>
 
-<Navbar />
+<Navbar {crumbs} />
 <section class="heading">
   <p class="dashboard-heading">Dashboard</p>
-  <h2 class="header-heading">Admin</h2>
+  <h2 class="header-heading">{titel}</h2>
 </section>
 
 <section class="websites">
-  {#each data.bedrijven as bedrijf}
-    <a href={bedrijf.slug} class="website-container">
+  {#each urls as url}
+    <a href="{$page.url.pathname}/{url.id}" class="website-container">
       <section>
-        <h3>{bedrijf.titel}</h3>
-        <a href={bedrijf.homepage} class="links">{bedrijf.homepage}</a>
-        <p class="toegankelijk">{bedrijf.toegankelijk}</p>
+        <h3>{url.slug}</h3>
+        <a href={url.url} class="links">{url.url}</a>
+        <p class="toegankelijk">{url.toegankelijk}</p>
       </section>
       <section>
         <img src="/pcg-wheel.png" alt="" />
