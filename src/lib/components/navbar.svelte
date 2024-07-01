@@ -17,7 +17,7 @@
       <li><a href="#">Scan</a></li>
     </ul>
     {#if crumbs}
-      <Breadcrumbs {crumbs} {origin} />
+      <Breadcrumbs {crumbs} />
     {/if}
   </section>
 </nav>

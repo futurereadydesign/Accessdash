@@ -6,11 +6,13 @@
   $: titel = data.bedrijf.titel;
   $: slug = data.bedrijf.slug;
   $: websites = data.bedrijf.websites;
+  $: origin = $page.params.websiteID;
 
   $: crumbs = {
     titel: titel,
-    slug: slug,
+    slug: $page.params.websiteID,
     items: websites,
+    origin: origin,
   };
 </script>
 

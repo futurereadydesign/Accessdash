@@ -1,6 +1,6 @@
-export default function getQueryPartner(gql){
-    return gql`
-    query checklist {
+export default function getQueryChecklist(gql) {
+  return gql`
+    query Checklist {
       richtlijns(first: 100) {
         titel
         slug
@@ -31,5 +31,5 @@ export default function getQueryPartner(gql){
         }
       }
     }
-    `
+  `;
 }

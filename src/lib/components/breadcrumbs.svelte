@@ -1,18 +1,17 @@
 <script>
   export let crumbs;
-  import { page } from "$app/stores";
 </script>
 
 <section class="breadcrumbs">
   <section class="dashboard">
-    <a href="{$page.url.pathname}{crumbs.slug}" class="dashboard">
+    <a href="/{crumbs.slug}" class="dashboard">
       <img src="/dashboard-icon.svg" alt="" />{crumbs.titel}
     </a>
   </section>
   <ul>
     {#each crumbs.items as item}
       <li>
-        <a href="{$page.url.pathname}/{item.slug}"
+        <a href="/{crumbs.origin}/{item.titel ? item.slug : item.id}"
           >{item.titel ? item.titel : "/" + item.slug}</a
         >
       </li>

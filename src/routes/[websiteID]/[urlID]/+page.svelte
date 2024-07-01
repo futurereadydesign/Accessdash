@@ -1,15 +1,18 @@
 <script>
   import Navbar from "../../../lib/components/navbar.svelte";
+  import { page } from "$app/stores";
   export let data;
 
   $: titel = data.website.titel;
   $: slug = data.website.slug;
   $: urls = data.website.urls;
+  $: origin = $page.params.urlID + "/" + $page.params.websiteID;
 
   $: crumbs = {
     titel: titel,
-    slug: slug,
+    slug: $page.params.websiteID,
     items: urls,
+    origin: origin,
   };
 </script>
 
@@ -21,7 +24,7 @@
 
 <section class="websites">
   {#each urls as url}
-    <a href={url.slug} class="website-container">
+    <a href="{$page.url.pathname}/{url.id}" class="website-container">
       <section>
         <h3>{url.slug}</h3>
         <a href={url.url} class="links">{url.url}</a>

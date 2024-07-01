@@ -1,14 +1,28 @@
 <script>
-  export let data;
   import Navbar from "$lib/components/navbar.svelte";
+  import { page } from "$app/stores";
+  export let data;
+
+  $: titel = data.singleUrl.url.website.titel;
+  $: slug = data.singleUrl.url.slug;
+  $: urls = data.singleUrl.url.website.urls;
+  $: origin = $page.params.urlID + "/" + $page.params.websiteID;
+
+  $: crumbs = {
+    titel: titel,
+    slug: data.singleUrl.url.website.slug,
+    items: urls,
+    origin: origin,
+  };
 </script>
 
+<Navbar {crumbs} />
 <section class="heading">
   <p class="dashboard-heading">Dashboard</p>
-  <h2 class="header-heading">Future Ready Design/Home</h2>
+  <h2 class="header-heading">{titel}/{slug}</h2>
 </section>
 
-{#each data.richtlijns as richtlijns}
+{#each data.checklist.richtlijns as richtlijns}
   <article>
     <div class="richtlijn-container">
       <h3>
@@ -67,15 +81,9 @@
   </article>
 {/each}
 
-<section class="filters">
-  <button>Voldoet niet(14)</button>
-  <button>Voldoet(9)</button>
-  <button>A(19)</button>
-  <button>AA(12)</button>
-  <button>AAA(11)</button>
-</section>
-
 <style lang="scss">
+  @import "$lib/sass/variables.scss";
+
   .heading {
     margin-bottom: 2em;
   }
