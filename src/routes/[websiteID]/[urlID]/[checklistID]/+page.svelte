@@ -32,7 +32,7 @@
       <img src={richtlijns.icon.url} alt={richtlijns.icon.fileName} />
     </div>
     {#each richtlijns.succescriteria as succescriteria}
-      <section class="criterias">
+      <section>
         <details>
           <summary>
             <div class="content-container">
@@ -40,12 +40,12 @@
                 <h3>{succescriteria.index} {succescriteria.titel}</h3>
                 <a href={succescriteria.wcag}>{succescriteria.wcag}</a>
               </div>
-              <label class="checkbox-label" for="">
+              <label for="">
                 <input name="check" type="checkbox" />
               </label>
             </div>
           </summary>
-          <div class="richtlijn-uitleg">
+          <div>
             {@html succescriteria.criteria.html}
           </div>
           <!-- <p>{succescriterium.niveau}</p> -->
@@ -65,7 +65,7 @@
           </section>
           <section class="fix-container">
             <div>
-              <h4 class="solution">
+              <h4>
                 Hoe je dit kunt oplossen ({succescriteria.index})
               </h4>
               <p>{succescriteria.oplossen}</p>
